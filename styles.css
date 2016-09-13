@@ -18,7 +18,7 @@
   top: initial;
   left: initial;
 }
-.selectableTableCells table {
+table.selectableTableCells {
     user-select: none;
     -webkit-user-select: none;
 }

@@ -1,6 +1,7 @@
 'use strict';
+angular.module('adidas.selectableTableCells', []);
 
-angular.module('selectableTableCells')
+angular.module('adidas.selectableTableCells')
 	.directive('selectableTableCells', ['$document','$window', function ($document, $window) {
 		return {
 			link: function (scope, element, attr) {
@@ -14,6 +15,7 @@ angular.module('selectableTableCells')
                 var selection = [getCellPos(), getCellPos()];
 
                 var tbl = element;
+                element.addClass('selectableTableCells');
 
                 function startSelection(event) {
                     if (event.button === 2) { return false; }
