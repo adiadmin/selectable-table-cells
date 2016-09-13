@@ -1,0 +1,24 @@
+{
+  "name": "selectableTableCells",
+  "version": "1.0.0",
+  "authors": [
+    "Geoff Chan <geoffc@dev6.com>"
+  ],
+  "description": "Add the ability to select and copy cells to any table!",
+  "main": [
+    "index.js",
+    "styles.css"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.3.0"
+  }
+}
