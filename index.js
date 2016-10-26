@@ -202,8 +202,16 @@ angular.module('adidas.selectableTableCells')
                 $(window).mouseup(stopSelection);
 
                 // Attaches an event listener to clear selection on each new mousedown
-                $document.mousedown(function (event) {
-                    if ($(event.target).parents(tbl).length === 0) clearAll();
+                $(window).mousedown(function (event) {
+                    var isTable = false;
+                    var parents = $(event.target).parents();
+                    
+                    for (var i = 0; i < parents.length; i++) {
+                        if (parents[i].className.indexOf('selectableTableCells') != -1) isTable = true;
+                    }
+
+                    if (!isTable) clearAll();
+                    
                 });
 
                 // Attaches an event listener to create a hidden table and populate it with the selected data.
