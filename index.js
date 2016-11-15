@@ -157,9 +157,9 @@ angular.module('adidas.selectableTableCells')
                     var rowCounter = 2;
 
                     if (tableCreated) {
-                        $("#hiddenTable td").html("<table id='theHiddenTable'><tr></tr></table>");
+                        $("#hiddenTable td").html("<table id='theHiddenTable' cellspacing='0' cellpadding='0' border='0'><tr></tr></table>");
                     } else {
-                        tbl.append("<tr id='hiddenTable'><td><table id='theHiddenTable'><tr></tr></table></td></tr>");
+                        tbl.append("<tr id='hiddenTable'><td><table id='theHiddenTable' cellspacing='0' cellpadding='0' border='0'><tr></tr></table></td></tr>");
                         tableCreated = true;
                     }
 
@@ -174,6 +174,9 @@ angular.module('adidas.selectableTableCells')
                     
                     // builds rest of the rows
                     tbl.find('tr').slice(selectionRect.y, selectionRect.height).each(function (i) {
+                        console.log($(this).attr("id"));
+                        if( $(this).attr("id") == "hiddenTable" ) return false;
+
                         var row = [];
                         $("#hiddenTable table").append("<tr></tr>");
                         
@@ -187,8 +190,8 @@ angular.module('adidas.selectableTableCells')
                         $(this).find('> *').slice(selectionRect.x, selectionRect.width).each(function(index){
                             var display = $(this)[0].currentStyle ? $(this)[0].currentStyle.display : getComputedStyle($(this)[0], null).display;
                             if (display !== 'none') {
-                            //row[index] = $(this)[0].outerText;
-                            $("#hiddenTable table tr:nth-child("+rowCounter+")").append("<td>" + $(this)[0].outerText + "</td>");
+                                //row[index] = $(this)[0].outerText;
+                                $("#hiddenTable table tr:nth-child("+rowCounter+")").append("<td>" + $(this)[0].outerText + "</td>");
                             }
                         });
                         rowCounter++;

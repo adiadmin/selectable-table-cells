@@ -27,8 +27,9 @@ table.selectableTableCells {
     -webkit-user-select: text !important;
     margin: 0 !important;
     padding: 0 !important;
+    border-spacing: 0 !important;
 }
-.selectableTableCells table#theHiddenTable td {
+.selectableTableCells table#theHiddenTable * {
     color: #000 !important;
     font-size: 12px !important;
     font-family: Arial, Helvetica, sans-serif !important;
