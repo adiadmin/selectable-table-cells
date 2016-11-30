@@ -76,8 +76,8 @@ angular.module('adidas.selectableTableCells')
                     // disabled the selection of the entire first row when the user clicks on the first column cells
                     //if (rect.x === 0 && rect.width === 1) rect.width = tbl.find('tr:first-child > *').length;
                     if (rect.y === 0 && rect.height === 1) {
-                    rect.height = tbl.find('tr').length;
-                    headerSelected = true;
+                        rect.height = tbl.find('tr').length;
+                        headerSelected = true;
                     }
 
                     return rect;
@@ -164,13 +164,14 @@ angular.module('adidas.selectableTableCells')
                     }
 
                     // build header row
-                    tbl.find('td').slice(selectionRect.x, selectionRect.width).each(function(index) {
-                        var display = $(this)[0].currentStyle ? $(this)[0].currentStyle.display : getComputedStyle($(this)[0], null).display;
-                        if (display !== 'none') {
-                        //headers[index] = $(this)[0].outerText;
-                        $("#hiddenTable table tr:first-child").append("<th>" + $(this)[0].outerText + "</th>");
-                        }
-                    });
+                    // removed by request 30/11/2016
+                    // tbl.find('td').slice(selectionRect.x, selectionRect.width).each(function(index) {
+                    //     var display = $(this)[0].currentStyle ? $(this)[0].currentStyle.display : getComputedStyle($(this)[0], null).display;
+                    //     if (display !== 'none') {
+                    //     //headers[index] = $(this)[0].outerText;
+                    //     $("#hiddenTable table tr:first-child").append("<th>" + $(this)[0].outerText + "</th>");
+                    //     }
+                    // });
                     
                     // builds rest of the rows
                     tbl.find('tr').slice(selectionRect.y, selectionRect.height).each(function (i) {
@@ -181,11 +182,12 @@ angular.module('adidas.selectableTableCells')
                         $("#hiddenTable table").append("<tr></tr>");
                         
                         // checks to see if header is selected and won't copy it as the first row
-                        if (headerSelected == true) {
-                            rowCounter++;
-                            headerSelected = false;
-                            return true;
-                        }
+                        // removed by request 30/11/2016
+                        // if (headerSelected == true) {
+                        //     rowCounter++;
+                        //     headerSelected = false;
+                        //     return true;
+                        // }
                         
                         $(this).find('> *').slice(selectionRect.x, selectionRect.width).each(function(index){
                             var display = $(this)[0].currentStyle ? $(this)[0].currentStyle.display : getComputedStyle($(this)[0], null).display;

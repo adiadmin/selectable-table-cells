@@ -18,6 +18,9 @@
   top: initial;
   left: initial;
 }
+.selectableTableCells #hiddenTable table tr:first-child td {
+  color: #000;
+}
 table.selectableTableCells {
     user-select: none;
     -webkit-user-select: none;
